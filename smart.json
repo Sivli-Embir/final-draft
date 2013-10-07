@@ -1,0 +1,18 @@
+{
+  "packages": {
+    "simple-schema": {},
+    "accounts-ui-bootstrap-3": {},
+    "underscore-string": {},
+    "underscore-string-latest": {},
+    "moment": {},
+    "iron-router": {
+      "branch": "dev",
+      "git": "https://github.com/EventedMind/iron-router.git"
+    },
+    "meteor-lunr": {
+      "branch": "master",
+      "git": "https://github.com/electricjesus/meteor-lunr.git"
+    },
+    "iron-router-resource": {}
+  }
+}

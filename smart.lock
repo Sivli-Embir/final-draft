@@ -1,0 +1,63 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "simple-schema": {},
+      "accounts-ui-bootstrap-3": {},
+      "underscore-string": {},
+      "underscore-string-latest": {},
+      "moment": {},
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "branch": "dev"
+      },
+      "meteor-lunr": {
+        "git": "https://github.com/electricjesus/meteor-lunr.git",
+        "branch": "master"
+      },
+      "iron-router-resource": {}
+    },
+    "packages": {
+      "simple-schema": {
+        "git": "https://github.com/aldeed/meteor-simple-schema.git",
+        "tag": "v0.2.8",
+        "commit": "613c1df092a92aeefc3bcaa776ba259e7c3e4cf4"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.2.3",
+        "commit": "c6aac7a331e457abd457a6f3ed030ac1411b220c"
+      },
+      "underscore-string": {
+        "git": "https://github.com/possibilities/meteor-underscore-string.git",
+        "tag": "v2.2.0rc.1",
+        "commit": "dec21fac23310daf76dc19f246749e7beb48af03"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.2.1",
+        "commit": "9ee12e714afe56b189f53076447b7b54f3012065"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "branch": "dev",
+        "commit": "4818286a6235ac1c8ee28707db7633623223025f"
+      },
+      "meteor-lunr": {
+        "git": "https://github.com/electricjesus/meteor-lunr.git",
+        "branch": "master",
+        "commit": "0401cf2bc169eb1e0790cd25e7a0341cdc8fa69e"
+      },
+      "iron-router-resource": {
+        "git": "https://github.com/XpressiveCode/iron-router-resource.git",
+        "tag": "v0.1.4",
+        "commit": "4b739834d33e585d6929d08b957d91e794bd18d4"
+      }
+    }
+  }
+}

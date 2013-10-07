@@ -1,0 +1,261 @@
+<head>
+  <title>final Draft</title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/readable/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<template name="layout"> 
+  <nav class="navbar navbar-default" role="navigation">
+    <ul class="nav navbar-nav nav-justified">
+      <li id='home-nav'><a href="/">Home</a></li>
+      <li id='about-nav'><a href="/about">What is the final Draft</a></li>
+      <li id='posts-nav'><a href="/posts">Student Works</a></li>
+      <li id='newMember-nav'><a href="/new-member">Become a Member</a></li>
+      {{#if isAdmin}} <li id='admin-nav'><a href="/admin"><span class="badge">{{prospectiveMemberCount}}</span> Manage Members</a></li> {{/if}}
+      {{loginButtons}}
+    </ul>
+  </nav>
+  <!-- the main template will be rendered here -->
+  <div class="container">
+    {{yield}}
+  </div>
+  <footer>
+    <!-- render to the footer yield -->
+  </footer>
+</template>
+
+
+<template name="home"> 
+  final Draft!
+  {{#constant}}
+  <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%23711616&amp;ctz=America%2FNew_York" style=" border-width:0 " width="300" height="400" frameborder="0" scrolling="no"></iframe>
+  {{/constant}}
+</template>
+
+<template name="postsNav"> 
+  <nav>
+    <ul class="nav nav-tabs nav-justified">
+      <li id='list-post-sub-nav'><a href="/posts">Posts listings <span class="badge">{{postCount}}</span></a></li>
+      <li id='new-post-sub-nav'><a href="/posts/new">Create a new Post</a></li>
+    </ul>
+  </nav>
+</template>
+
+<template name='searchNFilter'>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="input-group">
+        <input name="search" id="search" autocomplete="off" value="{{search_keywords}}" type="text" class="form-control" placeholder="Find a work...">
+        <span class="input-group-btn">
+          <button id='publishableFilter' class="btn {{#unless publishableFilter}} btn-success {{/unless}} filter" type="button">Publishable</button>
+          <button id='reviewFilter' class="btn {{#unless reviewFilter}} btn-warning {{/unless}} filter" type="button">Request for Review</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div>
+
+</template>
+
+<template name="about"> 
+  We are the bomb, yo!
+</template>
+
+<template name="newMember"> 
+  Welcome!
+</template>
+
+<template name="notFound"> 
+  DNE
+</template>
+
+<template name="admin"> 
+  <div>
+    <table class="table table-striped">
+      <caption>Members List</caption>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#if prospectiveMembers}}
+          <tr class="danger"> 
+            <td class="separator"> 
+              <p class=''>Prospective Members</p> </td> 
+            <td colspan="4" class="separator">&nbsp; </td> 
+         </tr>
+          {{#each prospectiveMembers}}
+          <tr>
+            <td>{{username}}</td>
+            <td>{{#each emails}} {{address}} {{/each}}</td>
+            <td>
+              <button type="button" class="btn btn-warning activate-member">Activate</button>
+              <button type="button" class="btn btn-danger remove-member">Remove</button>
+            </td>
+          </tr>
+          {{/each}}
+          {{#if members}}
+         <tr class="success"> 
+           <td class="separator"> 
+             <p>Current Members</p> </td> 
+           <td colspan="4" class="separator">&nbsp; </td> 
+          </tr>
+          {{/if}}
+        {{/if}}
+        {{#each members}}
+        <tr>
+          <td>{{username}}</td>
+          <td>{{#each emails}} {{address}} {{/each}}</td>
+          <td><button type="button" class="btn btn-warning deactivate-member">Deactivate</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="listPosts"> 
+  {{> postsNav}}
+  {{> searchNFilter}}
+  <br>
+  <div class="list-group">
+    {{#each posts}}
+      <a href="{{path}}" class="list-group-item">
+        <h4 class="list-group-item-heading">{{title}} <small class='nowrap'>By {{author}}</small></h4>
+
+        {{#unless public}}<span class="label label-info">Private</span>{{/unless}}
+        {{#if publishable}}<span class="label label-success">Publishable</span>{{/if}}
+        {{#if review}}<span class="label label-warning">Review Needed</span>{{/if}}
+      </a>
+    {{/each}}
+  </div>
+</template>
+
+<template name="showPosts"> 
+  {{> postsNav}}
+  {{#if post}}
+    {{#with post}}
+      <div class='jumbotron'>
+        Media Type: {{type}}
+        <h1 class='text-center'>{{title}}</h1>
+        <p class='text-center'>Posted By: {{author}}</p>
+        
+          <div class='row'>
+            <div class='col-md-6 col-md-offset-3'>
+              <a href="{{link}}" type="button" class="btn btn-primary btn-lg btn-block" target="_blank">View Work</a>
+              {{#unless isOwner}}
+                {{#if isAdmin}}
+                  <a href='{{_id}}/delete' type="button" class="btn btn-danger btn-lg btn-block" >Delete Posting</a>
+                {{/if}}
+              {{/unless}}
+            </div>
+          </div>
+          <div class="row">
+            {{#if isOwner}}
+            <div class='col-md-3 col-md-offset-3'>
+              <a href='{{_id}}/edit' type="button" class="btn btn-warning btn-lg btn-block" >Edit Posting</a>
+            </div>
+            <div class='col-md-3'>
+              <a href='{{_id}}/delete' type="button" class="btn btn-danger btn-lg btn-block" >Delete Posting</a>
+            </div>
+            {{/if}}
+          </div>
+        <p class='col-lg-12'>{{description}}</p>
+        <p class='col-lg-6'>
+        {{#unless public}}<span class="label label-info">Private</span>{{/unless}}
+        {{#if publishable}}<span class="label label-success">Publishable</span>{{/if}}
+        {{#if review}}<span class="label label-warning">Review Needed</span>{{/if}}
+        <p>
+        <p class='col-lg-6'>
+        <small>Last updated on: {{moment edited_at}}</small>
+        </p>
+      </div>
+    {{/with}}
+  {{else}}
+  <p>
+    Post not found or still loading! 
+    Your Internet connection may be having issues or you are looking at a post id that does not exist. 
+    Check for typos if you manually entered the URL (which is a bit crazy all things considered, those are random strings you know)</p>
+  {{/if}}
+</template>
+
+<template name="newPost"> 
+  {{> postsNav}}
+  <br>
+  {{> _post}}
+</template>
+
+<template name="editPost"> 
+  {{> postsNav}}
+  <br>
+  {{> _post}}
+</template>
+
+<template name='_post'>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="title" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="title" placeholder="Title" value='{{post.title}}' required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="link" class="col-lg-2 control-label">Link</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="link" placeholder="Google Drive Link" value='{{post.link}}' required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="type" class="col-lg-2 control-label">Media Type</label>
+      <div class="col-lg-10">
+        <select id='type' class="form-control" required>
+          <option selected="selected" disabled="disabled">What kind of Media is this?</option>
+          <option value='Text'> Text </option>
+          <option value='Image'> Image </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description" class="col-lg-2 control-label">Short Description</label>
+      <div class="col-lg-10">
+        <textarea id='description' class="form-control" rows="3" placeholder="Just something to let people know what it is about." required>{{post.description}}</textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <div class="checkbox">
+          <label>
+            <input id='public' type="checkbox"> Public  <span class="text-warning">(Let anyone who visits this site see this work.)</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <div class="checkbox">
+          <label>
+            <input id='publishable' type="checkbox"> Publishable <span class="text-warning"> (Can the final Draft publish this work for you?) </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <div class="checkbox">
+          <label>
+            <input id='review' type="checkbox"> Needs Review <span class="text-warning"> (Are you looking for feedback?) </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <button type="submit" class="btn btn-default">{{#if route 'newPost'}} Create Post {{else}} Edit Post {{/if}}</button>
+      </div>
+    </div>
+  </form>
+</template>
