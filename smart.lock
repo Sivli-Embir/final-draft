@@ -15,7 +15,8 @@
         "git": "https://github.com/electricjesus/meteor-lunr.git",
         "branch": "master"
       },
-      "iron-router-resource": {}
+      "iron-router-resource": {},
+      "blog": {}
     },
     "packages": {
       "simple-schema": {
@@ -46,7 +47,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "4818286a6235ac1c8ee28707db7633623223025f"
+        "commit": "36a155ba56dea761344959b834714ded61396064"
       },
       "meteor-lunr": {
         "git": "https://github.com/electricjesus/meteor-lunr.git",
@@ -55,8 +56,13 @@
       },
       "iron-router-resource": {
         "git": "https://github.com/XpressiveCode/iron-router-resource.git",
-        "tag": "v0.1.4",
-        "commit": "4b739834d33e585d6929d08b957d91e794bd18d4"
+        "tag": "v0.1.7",
+        "commit": "8b80985612bb6d72aaa7bc02ac5ca5ebd107f1a1"
+      },
+      "blog": {
+        "git": "https://github.com/BeDifferential/meteor-blog.git",
+        "tag": "v0.0.1",
+        "commit": "513f96964c6040722cfb278c920c62da3e7bdcf8"
       }
     }
   }

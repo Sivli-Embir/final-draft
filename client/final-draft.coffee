@@ -20,8 +20,9 @@ Template.layout.rendered = ->
       $('#posts-nav').addClass('active')
     when 'showPost'
       $('#posts-nav').addClass('active')
+  $('#login-dropdown-list a').removeAttr("href");
 
-Template.layout.prospectiveMemberCount = Meteor.users.find({emails: $elemMatch: verified: false}).count() #|| undefined
+Template.layout.prospectiveMemberCount = -> Meteor.users.find({emails: {$elemMatch: {verified: false}}}).count() || undefined
 
 Template.postsNav.rendered = ->
   switch Router.current().route.name

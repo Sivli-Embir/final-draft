@@ -13,6 +13,7 @@
       "branch": "master",
       "git": "https://github.com/electricjesus/meteor-lunr.git"
     },
-    "iron-router-resource": {}
+    "iron-router-resource": {},
+    "blog": {}
   }
 }
