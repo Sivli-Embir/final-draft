@@ -1,0 +1,65 @@
+<template name='notFound'>
+<div id="wrapera">
+  <div id="wraperb">
+      <div id="wraperc">
+      <div class="contentz">    
+      <div id="head">
+       <div class="head-move">
+        <div id="wing-one"><span></span></div>  
+        <div id="skull">
+          <div id="left-eye" class="background">
+              <div class="eyebrow"><span></span></div>
+                  <div class="eyeball">
+                      <div class="eye-pupil">
+                      <div class="pupil-one"></div>
+                      <div class="pupil-two"></div>
+                    </div>
+                </div>
+              </div>
+              <div id="right-eye" class="background">
+              <div class="eyebrow"><span></span></div>
+                <div class="eyeball">
+                    <div class="eye-pupil">
+                      <div class="pupil-one"></div>
+                      <div class="pupil-two"></div>
+                    </div>
+                </div>
+              </div>
+          
+          </div>
+        
+        <div id="wing-two"><span></span></div>
+        
+        <div id="legs" class="background">
+            <div class="legs-a"><span></span></div>
+              <div class="legs-b"><span></span></div>
+            </div>
+        
+        </div>   
+      </div> 
+      
+      <div class="eror-font">
+        {{#if route 'showPost'}}
+        <span class="four-four">204</span>
+        <span class="info-one">It seems like Cthulhu ate this post.</span>
+        <span class="info-two">Run for your life!</span>
+        {{else}}
+        <span class="four-four">404</span>
+        <span class="info-one">It seems like Cthulhu ate this page.</span>
+        <span class="info-two">Run for your life!</span>
+        {{/if}}
+      </div>
+      
+    </div>
+
+      </div>
+    
+    <div id="bottom">
+        <div id="nav">
+          
+        </div>
+    
+    </div>
+  </div>
+</div>
+</template>

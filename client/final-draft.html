@@ -66,10 +66,6 @@
   Welcome!
 </template>
 
-<template name="notFound"> 
-  DNE
-</template>
-
 <template name="admin"> 
   <div>
     <table class="table table-striped">
@@ -176,10 +172,7 @@
       </div>
     {{/with}}
   {{else}}
-  <p>
-    Post not found or still loading! 
-    Your Internet connection may be having issues or you are looking at a post id that does not exist. 
-    Check for typos if you manually entered the URL (which is a bit crazy all things considered, those are random strings you know)</p>
+    {{> notFound}}
   {{/if}}
 </template>
 
