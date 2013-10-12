@@ -6,10 +6,6 @@ Template.layout.rendered = ->
   switch Router.current().route.name
     when 'home'
       $('#home-nav').addClass('active')
-    when 'about'
-      $('#about-nav').addClass('active')
-    when 'newMember'
-      $('#newMember-nav').addClass('active')
     when 'admin'
       $('#admin-nav').addClass('active')
     when 'listPosts'

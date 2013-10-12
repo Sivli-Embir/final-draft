@@ -3,7 +3,6 @@
   "dependencies": {
     "basePackages": {
       "simple-schema": {},
-      "accounts-ui-bootstrap-3": {},
       "underscore-string": {},
       "underscore-string-latest": {},
       "moment": {},
@@ -21,13 +20,8 @@
     "packages": {
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.2.8",
-        "commit": "613c1df092a92aeefc3bcaa776ba259e7c3e4cf4"
-      },
-      "accounts-ui-bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.3",
-        "commit": "c6aac7a331e457abd457a6f3ed030ac1411b220c"
+        "tag": "v0.2.10",
+        "commit": "64d41a9ec7f220ecc63d22a5f1056c5926651b82"
       },
       "underscore-string": {
         "git": "https://github.com/possibilities/meteor-underscore-string.git",
@@ -47,7 +41,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "36a155ba56dea761344959b834714ded61396064"
+        "commit": "97ce4e61badaea7987682a530ac627c5c1c116aa"
       },
       "meteor-lunr": {
         "git": "https://github.com/electricjesus/meteor-lunr.git",

@@ -7,11 +7,11 @@ standard-app-packages
 preserve-inputs
 simple-schema
 coffeescript
-accounts-ui-bootstrap-3
-accounts-password
 underscore-string-latest
 natural-model
 moment
 iron-router
 underscore
 permissions
+accounts-google
+accounts-ui

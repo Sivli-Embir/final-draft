@@ -3,10 +3,15 @@ Router.configure
   notFoundTemplate: 'notFound'
 
 
+
 Router.map ->
-  @route 'home',  path: '/'
-  @route 'about',  path: '/about'
-  @route 'newMember',  path: '/new-member'
+  @route 'home', 
+    path: '/', 
+    after: ->
+      if @params.hash in ['welcome','events','about']
+        $('html, body').animate({scrollTop: $("##{@params.hash}").offset().top}, 200)
+      true
+  @route 'newMember', path: '/new-member'
   @route 'admin',  path: '/admin', controller: 'AdminController'
 
   @route 'listPosts',  path: '/posts', controller: 'PostsController', action: 'list'

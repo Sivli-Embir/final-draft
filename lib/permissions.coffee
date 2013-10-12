@@ -1,6 +1,5 @@
 Permissions.registerHelper 'isUser', (userId) ->
-  user =  Permissions.currentUser(userId)
-  if user then return user.emails[0].verified
+  Permissions.currentUser(userId)
 Permissions.registerHelper 'isAdmin', (userId) ->
   user = Permissions.currentUser(userId)
   if user then return user.admin
