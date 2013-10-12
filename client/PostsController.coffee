@@ -9,8 +9,6 @@ class @PostsController extends RouteController
       when 'editPost'
         Meteor.subscribe('post', id)
       else {ready: -> true}
-  onBeforeRun: ->
-    user = Meteor.user();
   data: -> 
     switch Router.current().route.name
       when 'listPosts' 
@@ -49,4 +47,7 @@ class @PostsController extends RouteController
     console.log 'running posts new'
   delete: ->
     if permissions.deletablePost() then console.log 'bang'
+  how: ->
+    @template = 'howPosts'
+    @run()
 

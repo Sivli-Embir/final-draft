@@ -1,5 +1,46 @@
 body { padding-top: 55px; }
+body { padding-bottom: 55px; }
+
+footer {
+  background: rgba(255, 255, 255, .9);
+}
 
 .nowrap {
   white-space:nowrap;
+}
+
+.jumbotron-main {
+   position: relative;
+   z-index: 3;
+}
+.jumbotron-main:after {
+    background: url("/Homestuck.jpg");
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -2;
+}
+
+.jumbotron-main-small {
+   position: relative;
+   z-index: 3;
+}
+.jumbotron-main-small:after {
+    background: url("/Homestuck.jpg");
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -2;
 }

@@ -1,1 +1,1 @@
-//Accounts.config({ restrictCreationByEmailDomain: 'school.edu' })
+Accounts.config({ restrictCreationByEmailDomain: 'connect.durhamtech.edu' })

@@ -16,7 +16,6 @@ Template.layout.rendered = ->
       $('#posts-nav').addClass('active')
     when 'showPost'
       $('#posts-nav').addClass('active')
-  $('#login-dropdown-list a').removeAttr("href");
 
 Template.layout.prospectiveMemberCount = -> Meteor.users.find({emails: {$elemMatch: {verified: false}}}).count() || undefined
 
@@ -48,13 +47,10 @@ Template.newPost.events
     p = new Post()
     p.title = $("#title").val()
     p.link = $("#link").val()
-    p.type = $("#type").val()
     p.description = $("#description").val()
     p.public = $("#public").prop('checked')
     p.publishable = $("#publishable").prop('checked')
     p.review = $("#review").prop('checked')
-    p.edited_at = moment().valueOf()
-    p.author = Meteor.user().username
     result = p.create()
     if result then Router.go("/posts/#{p._id}")
     else console.log result
@@ -65,15 +61,15 @@ Template.editPost.events
     p = this.post
     p.title = $("#title").val()
     p.link = $("#link").val()
-    p.type = $("#type").val()
     p.description = $("#description").val()
     p.public = $("#public").prop('checked')
     p.publishable = $("#publishable").prop('checked')
     p.review = $("#review").prop('checked')
-    p.edited_at = moment().valueOf()
-    console.log p.save()
     if p.save() then Router.go("/posts/#{p._id}")
     else console.log p.validate()
+
+Template.footer.events
+  'click .back-to-top': (e) -> $("html, body").animate({ scrollTop: 0 }, "slow");
 
 Template.listPosts.path = -> Router.path('showPost', {id: this._id})
 
@@ -96,6 +92,8 @@ Handlebars.registerHelper 'route', (routeName) ->
 
 Handlebars.registerHelper 'count', (collection) ->
  if collection then collection.count()
+
+Handlebars.registerHelper 'ether', (bool1, bool2) -> (bool1 or bool2)
 
 Template.admin.events
   'click .activate-member': (e) ->

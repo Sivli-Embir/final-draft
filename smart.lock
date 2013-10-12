@@ -15,7 +15,8 @@
         "branch": "master"
       },
       "iron-router-resource": {},
-      "blog": {}
+      "blog": {},
+      "collection-hooks": {}
     },
     "packages": {
       "simple-schema": {
@@ -57,6 +58,11 @@
         "git": "https://github.com/BeDifferential/meteor-blog.git",
         "tag": "v0.0.1",
         "commit": "513f96964c6040722cfb278c920c62da3e7bdcf8"
+      },
+      "collection-hooks": {
+        "git": "https://github.com/matb33/meteor-collection-hooks.git",
+        "tag": "v0.5.4",
+        "commit": "7f286358af49ffc1a63e97354f2f306a911bacc0"
       }
     }
   }

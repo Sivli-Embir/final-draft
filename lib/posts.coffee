@@ -12,13 +12,11 @@ class @Post extends @NaturalModel
     title: 
       type: String
       max: 100
-    author:
+    authorId:
       type: String
     link:
       type: String
     description:
-      type: String
-    type:
       type: String
     edited_at:
       type: Number
@@ -29,6 +27,10 @@ class @Post extends @NaturalModel
     review:
       type: Boolean
 
+Posts.before.insert (userId, doc) ->
+  doc.edited_at = moment().valueOf()
+  doc.authorId = userId
+  doc
 
 Posts.allow
   insert: (userId, doc) -> Permissions.isUser(userId)
