@@ -205,8 +205,8 @@
           <div class="panel-footer hidden-xs">
             <div>
               {{#unless public}}<span class="label label-info">Private</span>{{/unless}}
-              {{#unless publishable}}<span class="label label-success">Publishable</span>{{/unless}}
-              {{#unless review}}<span class="label label-warning">Review Needed</span>{{/unless}}
+              {{#if publishable}}<span class="label label-success">Publishable</span>{{/if}}
+              {{#if review}}<span class="label label-warning">Review Needed</span>{{/if}}
               <small class='pull-right'>Last updated on: {{moment edited_at}}</small>
             </div>
           </div>

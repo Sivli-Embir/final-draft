@@ -16,7 +16,8 @@
       },
       "iron-router-resource": {},
       "blog": {},
-      "collection-hooks": {}
+      "collection-hooks": {},
+      "iron-router-progress": {}
     },
     "packages": {
       "simple-schema": {
@@ -42,7 +43,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "97ce4e61badaea7987682a530ac627c5c1c116aa"
+        "commit": "13d0007ee9dfa1a111a0e55eedcf002c593f5489"
       },
       "meteor-lunr": {
         "git": "https://github.com/electricjesus/meteor-lunr.git",
@@ -51,8 +52,8 @@
       },
       "iron-router-resource": {
         "git": "https://github.com/XpressiveCode/iron-router-resource.git",
-        "tag": "v0.1.7",
-        "commit": "8b80985612bb6d72aaa7bc02ac5ca5ebd107f1a1"
+        "tag": "v0.1.8.1",
+        "commit": "9d447847c355ef0c7c4d10e21926df88e6f7b407"
       },
       "blog": {
         "git": "https://github.com/BeDifferential/meteor-blog.git",
@@ -63,6 +64,11 @@
         "git": "https://github.com/matb33/meteor-collection-hooks.git",
         "tag": "v0.5.4",
         "commit": "7f286358af49ffc1a63e97354f2f306a911bacc0"
+      },
+      "iron-router-progress": {
+        "git": "https://github.com/Multiply/iron-router-progress.git",
+        "tag": "v0.0.6",
+        "commit": "ea736acd165a5fa87f0b018268b958a5c87ae76e"
       }
     }
   }

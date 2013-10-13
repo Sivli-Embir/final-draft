@@ -16,3 +16,4 @@ permissions
 accounts-google
 accounts-ui
 collection-hooks
+iron-router-progress
