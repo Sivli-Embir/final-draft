@@ -67,8 +67,8 @@
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
-        "tag": "v0.0.6",
-        "commit": "ea736acd165a5fa87f0b018268b958a5c87ae76e"
+        "tag": "v0.0.9",
+        "commit": "e55699228a91ea94e9349a7fd62361c5b172f069"
       }
     }
   }
