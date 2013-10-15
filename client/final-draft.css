@@ -4,7 +4,7 @@ body {
   background: url('/bg.jpg');
 }
 
-footer {
+footer p {
   background: rgba(214, 192, 147, .9);
 }
 
