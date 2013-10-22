@@ -102,3 +102,18 @@ Template.admin.events
     Meteor.call 'deactivateMember', this._id
   'click .remove-member': (e) ->
     Meteor.call 'removeMember', this._id
+
+Template.home.rendered = ->
+  developerKey = '8GNpCGbLv_XponALsPfp9YA7'
+  loadPicker = -> gapi.load('picker', {'callback': createPicker})
+  createPicker = ->  
+    picker = new google.picker.PickerBuilder().addView(google.picker.ViewId.IMAGE_SEARCH).setDeveloperKey(developerKey).setCallback(pickerCallback).build();
+    picker.setVisible(true)
+  pickerCallback = (data) ->
+    url = 'nothing';
+    if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) 
+      doc = data[google.picker.Response.DOCUMENTS][0];
+      url = doc[google.picker.Document.URL];
+    message = 'You picked: ' + url;
+    document.getElementById('result').innerHTML = message;
+  

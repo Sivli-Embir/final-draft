@@ -43,7 +43,7 @@
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "branch": "dev",
-        "commit": "13d0007ee9dfa1a111a0e55eedcf002c593f5489"
+        "commit": "2288616d9b4a6d42d6819566e752056c6b10fec7"
       },
       "meteor-lunr": {
         "git": "https://github.com/electricjesus/meteor-lunr.git",
@@ -67,8 +67,8 @@
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
-        "tag": "v0.0.9",
-        "commit": "e55699228a91ea94e9349a7fd62361c5b172f069"
+        "tag": "v0.1.2",
+        "commit": "e6f382c90c0847542d0946f32f4f78008038a8b4"
       }
     }
   }
